@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Page = () => {
 
@@ -20,33 +20,30 @@ const Page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     try {
       setLoading(true);
-      console.log("in try block")
-      const res = await axios.post('/api/users/signup', formData);
-      // const response = res.data;
-      console.log(res);
-      
-      // if(!response.success){
-      //   toast.error(response.message);
-      //   setLoading(false);
-      //   return;
-      // }
 
-      setLoading(false);
-      toast.success("Success")
+      const res = await axios.post("/api/users/signup", formData);
+      const response = res.data;
+
+      console.log(response)
+      toast.success("Login success")
+      router.push('/')
 
     } catch (error) {
-      console.log('in cactch block');
-      setLoading(false);
-      console.log(error);
-      toast.error(error.message);
+      console.log(error)
+      toast.error(error.response.data.message)
 
+    }finally{
+      setLoading(false)
     }
+
   };
 
   return (
     <div className="max-w-md mx-auto mt-20">
+      <Toaster />
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">

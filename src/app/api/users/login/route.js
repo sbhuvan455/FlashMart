@@ -19,9 +19,9 @@ export async function POST(request){
 
         if(!presentUser) throw new ApiError(404, "User not found")
 
-        const isPasswordCoreect = bcrypt.compareSync(password, presentUser.password)
+        const isPasswordCorrect = bcrypt.compareSync(password, presentUser.password)
 
-        if(!isPasswordCoreect) throw new ApiError(400, "Incorrect password")
+        if(!isPasswordCorrect) throw new ApiError(400, "Incorrect password")
 
         const tokenData = {
             id: presentUser._id,
