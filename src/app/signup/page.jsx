@@ -1,19 +1,48 @@
 "use client"
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Page = () => {
+
+  const router = useRouter()
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
-    email: ""
+    email: "",
+    address: ""
   });
+  
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Email:', formData.email);
-    console.log('Username:', formData.username);
-    console.log('Password:', formData.password);
+    try {
+      setLoading(true);
+      console.log("in try block")
+      const res = await axios.post('/api/users/signup', formData);
+      // const response = res.data;
+      console.log(res);
+      
+      // if(!response.success){
+      //   toast.error(response.message);
+      //   setLoading(false);
+      //   return;
+      // }
+
+      setLoading(false);
+      toast.success("Success")
+
+    } catch (error) {
+      console.log('in cactch block');
+      setLoading(false);
+      console.log(error);
+      toast.error(error.message);
+
+    }
   };
 
   return (
@@ -30,7 +59,7 @@ const Page = () => {
             type="text"
             placeholder="Username"
             value={formData.username}
-            onChange={(e) => setUsername({...formData, [e.target.name]:e.target.value})}
+            onChange={(e) => setFormData({...formData, [e.target.name]:e.target.value})}
           />
         </div>
         <div className="mb-6">
@@ -44,7 +73,7 @@ const Page = () => {
             name='email'
             placeholder="email"
             value={formData.email}
-            onChange={(e) => setUsername({...formData, [e.target.name]:e.target.value})}
+            onChange={(e) => setFormData({...formData, [e.target.name]:e.target.value})}
           />
         </div>
         <div className="mb-6">
@@ -58,19 +87,35 @@ const Page = () => {
             name='password'
             placeholder="Password"
             value={formData.password}
-            onChange={(e) => setUsername({...formData, [e.target.name]:e.target.value})}
+            onChange={(e) => setFormData({...formData, [e.target.name]:e.target.value})}
+          />
+        </div>
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            Address
+          </label>
+          <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="address"
+            type="address"
+            name='address'
+            placeholder="Address"
+            value={formData.address}
+            onChange={(e) => setFormData({...formData, [e.target.name]:e.target.value})}
           />
         </div>
         <div className="flex items-center justify-between">
           <button
             className="bg-blue-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
+            disabled={loading}
           >
-            Sign In
+            {loading ? 'loading':'Sign Up'}
           </button>
         </div>
       </form>
       <p>Already have an accout? <Link href='/login' className='text-red-800'>Sign In</Link></p>
+      
     </div>
   );
 };

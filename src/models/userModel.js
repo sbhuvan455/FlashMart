@@ -18,18 +18,14 @@ const userSchema = mongoose.Schema({
     },
     address: {
         type: String,
-        unique: true,
         required: true
     },
     isVerified: {
         type: Boolean,
         default: false
-    },
-    accessToken: {
-        type: String
     }
 }, {timestamps: true})
 
-const User = mongoose.model.User || mongoose.model("User", userSchema);
+const User = mongoose.models.User || mongoose.model("User", userSchema);
 
 export default User;
