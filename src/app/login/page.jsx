@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import { signInStart, signInSuccess, signInFailure } from '@/store/userSlice.js';
 
 const Page = () => {
 
@@ -14,27 +16,29 @@ const Page = () => {
     password: ""
   });
 
-  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch()
+
+  const { loading } = useSelector((state) => state.user)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     try {
-      setLoading(true);
+      dispatch(signInStart())
       console.log("formData: ", formData);
       const res = await axios.post("/api/users/login", formData);
       const response = res.data;
+
+      dispatch(signInSuccess(response.data))
 
       console.log(response)
       toast.success("Login success")
       router.push('/')
 
-    } catch (error) {
-      console.log(error)
-      toast.error(error.response.data.message)
-
-    }finally{
-      setLoading(false)
+    } catch (err) {
+      dispatch(signInFailure(err.response.data))
+      console.log(err)
+      toast.error(err.response.data.message)
     }
 
   };
@@ -77,7 +81,7 @@ const Page = () => {
             type="submit"
             disabled={loading}
           >
-            {loading ? 'loading':'Sign In'}
+            {loading ? 'loading...':'Sign In'}
           </button>
         </div>
       </form>
