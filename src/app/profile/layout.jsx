@@ -19,6 +19,9 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { signOut } from "@/store/userSlice.js";
 import { useRouter } from "next/navigation";
+import { HiOutlineChat } from "react-icons/hi";
+import { CgProfile } from "react-icons/cg";
+import { IoBagHandleOutline } from "react-icons/io5";
 
 function page({ children }) {
   const pathname = usePathname();
@@ -40,16 +43,16 @@ function page({ children }) {
   return (
     <div className="w-[80vw] h-[70vh] mx-auto my-10 rounded-lg flex border-2 items-center justify-center">
       <Toaster />
-      <div className="bg-foreground w-1/4 h-full py-8 rounded-lg flex px-8 flex-col gap-7">
+      <div className="bg-foreground w-1/4 h-full py-8 rounded-lg flex px-8 flex-col gap-7 select-none">
         <Link
           href="/profile/orders"
           className={`${
             pathname.startsWith("/profile/orders")
               ? "bg-background text-black"
               : "text-white"
-          } rounded-md px-4 py-2  hover:bg-background hover:text-black duration-200`}
+          } rounded-md px-4 py-2  hover:bg-background hover:text-black duration-200 flex gap-2 items-center`}
         >
-          Orders
+          <IoBagHandleOutline size={30}/> Orders
         </Link>
         <Link
           href="/profile/account"
@@ -57,9 +60,9 @@ function page({ children }) {
             pathname.startsWith("/profile/account")
               ? "bg-background text-black"
               : "text-white"
-          } rounded-md px-4 py-2  hover:bg-background hover:text-black duration-200`}
+          } rounded-md px-4 py-2  hover:bg-background hover:text-black duration-200 flex gap-2 items-center`}
         >
-          Account
+          <CgProfile size={30}/> Account
         </Link>
         <Link
           href="/profile/support"
@@ -67,9 +70,9 @@ function page({ children }) {
             pathname.startsWith("/profile/support")
               ? "bg-background text-black"
               : "text-white"
-          } rounded-md px-4 py-2  hover:bg-background hover:text-black duration-200`}
+          } rounded-md px-4 py-2  hover:bg-background hover:text-black duration-200 flex gap-2 items-center`}
         >
-          Customer Support
+          <HiOutlineChat size={30}/> Customer Support
         </Link>
         
         <Button variant='destructive'>

@@ -28,7 +28,7 @@ const Page = () => {
       console.log("formData: ", formData);
       const res = await axios.post("/api/users/login", formData);
       const response = res.data;
-
+      console.log(response)
       dispatch(signInSuccess(response.data))
 
       console.log(response)

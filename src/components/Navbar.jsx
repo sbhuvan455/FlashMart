@@ -1,14 +1,35 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { FaCartArrowDown } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CgProfile } from "react-icons/cg";
+import axios from "axios";
+import { signInFailure, signInSuccess, signOut } from "@/store/userSlice";
 
 
 const Navbar = () => {
 
+  console.log("Painting navbar")
+
   const { currentUser } = useSelector((state) => state.user)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get('/api/users/getuser');
+        const response = res.data;
+        console.log("no error");
+        dispatch(signInSuccess(response.data));
+      } catch (error) {
+        console.log("got error", error);
+        dispatch(signOut());
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <nav className="bg-gray-800 p-4 sticky top-0">
@@ -33,9 +54,9 @@ const Navbar = () => {
         <div className="flex gap-3 items-center">
           <Link
             href={currentUser ? '/profile' : '/login'}
-            className={currentUser ? "px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50": "px-2 py-2 text-white"}
+            className={!currentUser ? "px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50": "px-2 py-2 text-white"}
           >
-            {currentUser ? 'Login' : <CgProfile size={30}/>}
+            {currentUser ? <CgProfile size={30}/> : 'Login'}
           </Link>
           <div className="cursor-pointer">
             <FaCartArrowDown size={30} color="white" />
