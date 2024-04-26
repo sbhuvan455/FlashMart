@@ -65,6 +65,13 @@
     --ring: 240 4.9% 83.9%;
   }
 }
+
+.card__preview-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden
+}
  
 @layer base {
   * {

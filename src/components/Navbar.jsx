@@ -5,7 +5,7 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { CgProfile } from "react-icons/cg";
 import axios from "axios";
-import { signInFailure, signInSuccess, signOut } from "@/store/userSlice";
+import { signInSuccess, signOut } from "@/store/userSlice";
 
 
 const Navbar = () => {
@@ -20,10 +20,8 @@ const Navbar = () => {
       try {
         const res = await axios.get('/api/users/getuser');
         const response = res.data;
-        console.log("no error");
         dispatch(signInSuccess(response.data));
       } catch (error) {
-        console.log("got error", error);
         dispatch(signOut());
       }
     };
@@ -32,7 +30,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-gray-800 p-4 sticky top-0">
+    <nav className="bg-gray-800 p-4 sticky top-0 z-[1]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link href='/'>

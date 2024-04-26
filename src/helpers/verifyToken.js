@@ -2,8 +2,7 @@ import jwt from "jsonwebtoken"
 import { ApiError } from "./ApiError.js";
 
 export const verifyToken = (request) => {
-
-    const token = request.cookies.get('access_token')?.values || '';
+    const token = request.cookies.get('access_token')?.value || '';
     if(!token) throw new ApiError(404, "token not found");
 
     const {id} = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
