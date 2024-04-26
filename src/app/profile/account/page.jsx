@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 import { updateFailure, updateStart, updateSuccess } from '@/store/userSlice.js';
 
-function page() {
+function Page() {
 
   const [formData, setFormData] = useState({
     email: "",
@@ -87,4 +87,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

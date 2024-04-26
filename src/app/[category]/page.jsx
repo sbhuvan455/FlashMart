@@ -16,19 +16,20 @@ const Page = () => {
   const decodedCategory = category ? decodeURIComponent(category) : '';
 
   useEffect(() => {
-    const fetchData = async() => {
+    const fetchData = async () => {
       try {
-        const response = await axios.post('/api/products/fetchdata', {category: decodedCategory});
+        const response = await axios.post('/api/products/fetchdata', { category: decodedCategory });
         setProducts(response.data.data);
-
-        if(response.data.success == false) router.push('/')
+  
+        if (response.data.success === false) router.push('/');
       } catch (error) {
-        router.push('/')
+        router.push('/');
       }
-    }
-
+    };
+  
     fetchData();
-  }, [])
+  }, [decodedCategory, router]);
+  
 
   return (
     <>

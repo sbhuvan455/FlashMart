@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel";
 import ProductCard from "@/components/ProductCards";
 
+
 const Page = () => {
   const [categoryData, setCategoryData] = useState([]);
 

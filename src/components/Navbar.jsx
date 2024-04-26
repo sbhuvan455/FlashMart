@@ -27,7 +27,7 @@ const Navbar = () => {
     };
 
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <nav className="bg-gray-800 p-4 sticky top-0 z-[1]">

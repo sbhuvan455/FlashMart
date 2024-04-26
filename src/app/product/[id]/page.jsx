@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 
-function page() {
+function Page() {
   const [product, setProduct] = useState({});
   const params = useParams();
 
@@ -81,4 +81,4 @@ Object*/
   )
 }
 
-export default page;
+export default Page;

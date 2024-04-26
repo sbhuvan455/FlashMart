@@ -85,7 +85,7 @@ const Page = () => {
           </button>
         </div>
       </form>
-      <p>Don't have an accout? <Link href='/signup' className='text-red-800'>Sign Up</Link></p>
+      <p>Don&apos;t have an account? <Link href="/signup" className="text-red-800">Sign Up</Link></p>
     </div>
   );
 };

@@ -23,7 +23,7 @@ import { HiOutlineChat } from "react-icons/hi";
 import { CgProfile } from "react-icons/cg";
 import { IoBagHandleOutline } from "react-icons/io5";
 
-function page({ children }) {
+function Page({ children }) {
   const pathname = usePathname();
 
   const dispatch = useDispatch();
@@ -99,4 +99,4 @@ function page({ children }) {
   );
 }
 
-export default page;
+export default Page;
