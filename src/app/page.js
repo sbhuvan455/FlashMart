@@ -44,7 +44,7 @@ const Page = () => {
   return (
     <div className="my-3">
     <img src="paan-corner-banner-desktop.webp" alt="banner" className="w-[90vw] mx-auto"/>
-    <div className="my-10">
+    <div className="mt-10 mb-24">
       {categoryData.map((category, index) => (
         <div key={index} className="mb-8">
           <div className="flex items-center justify-between mx-24 mb-4">

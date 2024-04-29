@@ -34,7 +34,7 @@ const Page = () => {
   return (
     <>
     <h1 className='text-center text-3xl font-semibold font-sans my-8'>{decodedCategory}</h1>
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 my-5 mb-14 md:mb-5">
       {products.map((product, index) => (
         <ProductCard key={index} product={product} />
       ))}
