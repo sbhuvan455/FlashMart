@@ -42,8 +42,8 @@ const Navbar = () => {
   return (
     <nav className="bg-gradient-to-b from-fuchsia-200 to-white p-4 sticky left-0 right-0 top-0 z-[1]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div className="flex items-center">
-          <Link href='/' className="hidden md:block">
+        <div className="flex md:flex-row flex-col justify-center gap-4 md:gap-0 items-center">
+          <Link href='/'>
           <img
             src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/10.0.7/images/header/primary-logo.svg"
             alt="logo"
