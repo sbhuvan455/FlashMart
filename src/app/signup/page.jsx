@@ -46,7 +46,7 @@ const Page = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-20">
+    <div className="md:max-w-md w-[80vw] mx-auto mt-20">
       <Toaster />
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">

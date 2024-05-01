@@ -18,11 +18,15 @@ function Page() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setFormData({
-      email: currentUser.email,
-      username: currentUser.username,
-      address: currentUser.address
-    })
+
+    if(currentUser){
+      setFormData({
+        email: currentUser.email,
+        username: currentUser.username,
+        address: currentUser.address
+      })
+    }
+    
   }, [currentUser])
 
   const handleChange = (e) => {

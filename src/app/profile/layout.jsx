@@ -43,7 +43,7 @@ function Page({ children }) {
   return (
     <div className="w-[80vw] h-[70vh] mx-auto my-10 rounded-lg flex border-2 items-center justify-center">
       <Toaster />
-      <div className="bg-foreground w-1/4 h-full py-8 rounded-lg flex px-8 flex-col gap-7 select-none">
+      <div className="hidden md:flex bg-foreground w-1/4  h-full py-8 rounded-lg px-8 flex-col gap-7 select-none">
         <Link
           href="/profile/orders"
           className={`${
@@ -94,7 +94,7 @@ function Page({ children }) {
         </Button>
 
       </div>
-      <div className="w-3/4 h-full rounded-lg">{children}</div>
+      <div className="md:w-3/4 h-full w-full rounded-lg ">{children}</div>
     </div>
   );
 }

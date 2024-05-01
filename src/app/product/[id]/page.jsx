@@ -24,42 +24,6 @@ function Page() {
     fetchData();
   }, [params]);
 
-  /*{_id: '66224868a9d1b9ee672a58ab', name: 'Ariel Matic Front Load Liquid Detergent', category: 'Daily use Products', price: 441, quantity: '2 L', …}
-category
-: 
-"Daily use Products"
-createdAt
-: 
-"2024-04-19T10:33:12.855Z"
-images
-: 
-['https://firebasestorage.googleapis.com/v0/b/zepto-…=media&token=d88a3f32-95e4-4a56-9ff9-9f0044431dc0']
-name
-: 
-"Ariel Matic Front Load Liquid Detergent"
-price
-: 
-441
-quantity
-: 
-"2 L"
-updatedAt
-: 
-"2024-04-19T10:33:12.855Z"
-__v
-: 
-0
-_id
-: 
-"66224868a9d1b9ee672a58ab"
-[[Prototype]]
-: 
-Object*/
-
-/*
-  name, quantity, images, price
-*/
-
   return (
     <div className="flex w-full justify-center gap-20 my-5">
       <div className="w-1/2 h-[70vh] border-2 border-black/5 rounded-md flex items-center justify-center">
