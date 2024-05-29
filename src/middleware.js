@@ -21,6 +21,7 @@ export const config = {
     '/login',
     '/signup',
     '/profile',
-    '/profile/:path*'
+    '/profile/:path*',
+    '/cart'
   ]
 }

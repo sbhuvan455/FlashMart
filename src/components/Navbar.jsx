@@ -7,14 +7,18 @@ import { CgProfile } from "react-icons/cg";
 import axios from "axios";
 import { signInSuccess, signOut } from "@/store/userSlice";
 import { useRouter } from "next/navigation";
+import { Badge } from "@/components/ui/badge"
 
 
 const Navbar = () => {
   const [search, setSearch] = useState();
+  const [items, setItems] = useState(0);
 
   const { currentUser } = useSelector((state) => state.user)
   const dispatch = useDispatch()
   const router = useRouter();
+
+  const { quantity } = useSelector((state) => state.cart)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +33,10 @@ const Navbar = () => {
 
     fetchData();
   }, [dispatch]);
+
+  useEffect(() => {
+    setItems(quantity)
+  }, [quantity]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,9 +78,12 @@ const Navbar = () => {
           >
             {currentUser ? <CgProfile size={30} color="black"/> : 'Login'}
           </Link>
-          <div className="cursor-pointer">
+          <Link href='/cart'>
+          <div className="cursor-pointer flex items-center justify-center">
             <AiOutlineShoppingCart size={30} />
+            {(items > 0) && <Badge variant="secondary" className='w-2 text-center absolute top-3 right-2'>{items}</Badge>}
           </div>
+          </Link>
         </div>
       </div>
     </nav>
