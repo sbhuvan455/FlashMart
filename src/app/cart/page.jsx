@@ -43,7 +43,7 @@ const Cart = () => {
                     <div>
                       <h3 className="text-lg font-medium">{item.name}</h3>
                       <p className="text-gray-600">Price: ₹{item.price}</p>
-                      <p className="text-gray-600">Quantity: {item.qty}</p>
+                      {/* <p className="text-gray-600">Quantity: {item.qty}</p> */}
                     </div>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -53,6 +53,7 @@ const Cart = () => {
                     >
                       +
                     </button>
+                    <p>{item.qty}</p>
                     <button 
                       className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"
                       onClick={() => handleRemoveItem(item, key)}

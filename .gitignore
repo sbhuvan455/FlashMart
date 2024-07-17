@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# firebase
+/src/firebaseConfig.js
+
 # next.js
 /.next/
 /out/
@@ -27,6 +30,9 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env*
+.env
+/.env/*
 
 # vercel
 .vercel

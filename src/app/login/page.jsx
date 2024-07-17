@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import { signInStart, signInSuccess, signInFailure } from '@/store/userSlice.js';
+import OAuth from '@/components/Oauth';
 
 const Page = () => {
 
@@ -83,9 +84,12 @@ const Page = () => {
           >
             {loading ? 'loading...':'Sign In'}
           </button>
+          
         </div>
+        <OAuth />
       </form>
       <p>Don&apos;t have an account? <Link href="/signup" className="text-red-800">Sign Up</Link></p>
+      
     </div>
   );
 };

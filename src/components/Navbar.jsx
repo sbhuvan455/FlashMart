@@ -53,7 +53,7 @@ const Navbar = () => {
         <div className="flex md:flex-row flex-col justify-center gap-4 md:gap-0 items-center">
           <Link href='/'>
           <img
-            src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/10.0.7/images/header/primary-logo.svg"
+            src="logo.svg"
             alt="logo"
           />
           </Link>
