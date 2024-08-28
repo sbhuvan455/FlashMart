@@ -3,30 +3,18 @@ import { app } from '@/firebaseConfig.js';
 import { useDispatch } from 'react-redux';
 import { signInFailure, signInSuccess } from '@/store/userSlice.js';
 import axios from 'axios';
+import { FaGoogle } from "react-icons/fa6";
+import { useRouter } from 'next/navigation';
 
 export default function OAuth() {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const handleGoogleClick = async () => {
     const provider = new GoogleAuthProvider();
-    console.log("1");
     const auth = getAuth(app);
-    console.log("3");
-    // const router = useRouter();
 
     const result = await signInWithPopup(auth, provider);
-    console.log("4");
-    // const res = await fetch('/api/v1/auth/google', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     name: result.user.displayName,
-    //     email: result.user.email,
-    //     photo: result.user.photoURL,
-    //   }),
-    // });
 
     const res = await axios.post(
         '/api/users/google', 
@@ -36,24 +24,27 @@ export default function OAuth() {
         }
     )
 
-    console.log("5");
     const response = res.data;
+    console.log(data);
 
-    if(!res.success) dispatch(signInFailure(res.message));
-
-    if(data.success){
+    if(!res.data.success) dispatch(signInFailure(res.message));
+    
+    if(res.data.success){
+      console.log("Hello world!");
+      console.log(res.message);
       dispatch(signInSuccess(response));
       router.push("/");
     }
-
+  
   }
 
   return (
     <button
       onClick={handleGoogleClick}
       type='button'
-      className='bg-red-700 text-white p-3 rounded-lg uppercase hover:opacity-95'
+      className='border-gray-500 border-2 flex gap-2 items-center justify-center hover:bg-slate-50 text-black p-3 rounded-lg font-bold hover:opacity-95 my-4 w-[100%]'
     >
+      <FaGoogle />
       Continue with google
     </button>
   );

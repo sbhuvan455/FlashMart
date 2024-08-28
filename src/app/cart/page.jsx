@@ -2,9 +2,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem, removeItem } from '@/store/cartSlice.js';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 const Cart = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const items = useSelector((state) => state.cart.items);
   const totalQuantity = useSelector((state) => state.cart.quantity);
@@ -22,8 +25,12 @@ const Cart = () => {
       dispatch(removeItem({...item, _id: key}));
     }
     
-    
   };
+
+  const handleDelivery = () => {
+    console.log("routing delivery")
+    router.push('/tracker')
+  }
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
@@ -71,6 +78,9 @@ const Cart = () => {
         <h2 className="text-2xl font-semibold mb-4">Total</h2>
         <p className="text-lg">Total Quantity: {totalQuantity}</p>
         <p className="text-lg">Total Price: ₹{totalPrice.toFixed(2)}</p>
+
+        <Button className="w-full my-4">Proceed To Checkout</Button>
+        <Button className="w-full" variant="outline" onClick={handleDelivery}>Pay on Delivery</Button>
       </div>
     </div>
   );

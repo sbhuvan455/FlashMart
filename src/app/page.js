@@ -41,6 +41,10 @@ const Page = () => {
     fetchCategoryData();
   }, []);
 
+  if(categoryData.length <= 0){
+    console.log("loading...");
+  }
+
   return (
     <div className="my-3">
     <img src="paan-corner-banner-desktop.webp" alt="banner" className="w-[90vw] mx-auto"/>
