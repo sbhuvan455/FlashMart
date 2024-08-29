@@ -12,8 +12,6 @@ function page() {
 
     const [value, setValue] = useState(null);
 
-    const router = useRouter();
-
 
     const selectCurrentLocation = () => {
         navigator.geolocation.getCurrentPosition((success) => {
@@ -23,7 +21,7 @@ function page() {
                 lng:success.coords.longitude
             })
 
-            router.push(`/tracking?lat=${lat}&lng=${lng}`);
+            window.open(`/tracking?lat=${success.coords.latitude}&lng=${success.coords.longitude}`);
         })
     }
 
@@ -41,7 +39,7 @@ function page() {
                 lng: place.geometry.location.lng()
             })
 
-            router.push(`/tracking?lat=${lat}&lng=${lng}`);
+            window.open(`/tracking?lat=${place.geometry.location.lat()}&lng=${place.geometry.location.lng()}`);
         })
     }
 

@@ -32,6 +32,11 @@ const Cart = () => {
     router.push('/tracker')
   }
 
+  const handlePayment = () => {
+    console.log(totalPrice);
+    router.push(`/payment/?amount=${totalPrice}`)
+  }
+
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold mb-6">Shopping Cart</h1>
@@ -79,7 +84,7 @@ const Cart = () => {
         <p className="text-lg">Total Quantity: {totalQuantity}</p>
         <p className="text-lg">Total Price: ₹{totalPrice.toFixed(2)}</p>
 
-        <Button className="w-full my-4">Proceed To Checkout</Button>
+        <Button className="w-full my-4" onClick={handlePayment}>Proceed To Checkout</Button>
         <Button className="w-full" variant="outline" onClick={handleDelivery}>Pay on Delivery</Button>
       </div>
     </div>
