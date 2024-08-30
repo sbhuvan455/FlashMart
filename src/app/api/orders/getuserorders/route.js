@@ -12,7 +12,7 @@ export async function GET(request){
 
         const orders = await Order.aggregate([{
             $match: {
-                'customer': mongoose.Types.ObjectId(customerId)
+                'customer': new mongoose.Types.ObjectId(customerId)
             }
         }])
 

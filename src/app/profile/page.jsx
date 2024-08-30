@@ -43,7 +43,7 @@ function Page() {
   }
 
   return (
-    <div>
+    <div className="overflow-y-scroll">
       <Toaster />
       <div className="w-full h-full text-center md:block hidden">
         <p>Want to shop more...</p>
