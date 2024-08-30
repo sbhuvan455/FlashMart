@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
-function page() {
+function Page() {
 
     const [coordinates, setCoordinates] = useState({
         lat: '',

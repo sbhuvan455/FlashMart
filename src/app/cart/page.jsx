@@ -1,9 +1,11 @@
 "use client"
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItem, removeItem } from '@/store/cartSlice.js';
+import { addItem, clearCart, removeItem } from '@/store/cartSlice.js';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import { toast, Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -28,8 +30,27 @@ const Cart = () => {
   };
 
   const handleDelivery = () => {
-    console.log("routing delivery")
-    router.push('/tracker')
+    const products = Object.keys(items);
+
+    axios.post('/api/orders/createorder', {
+      items: products,
+      quantity: totalQuantity,
+      totalCost: totalPrice,
+      paymentType: 'COD'
+    }).then((response) => {
+      console.log(response);
+      toast.success('Order placed successfully');
+
+      setTimeout(() => {
+        router.push('/');
+        dispatch(clearCart())
+      }, 2000);
+
+    }).catch((error) => {
+      toast.error("Unable to place your order");
+      console.log(error);
+    })
+
   }
 
   const handlePayment = () => {
@@ -39,6 +60,7 @@ const Cart = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
+      <Toaster />
       <h1 className="text-3xl font-bold mb-6">Shopping Cart</h1>
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold mb-4">Cart Items</h2>

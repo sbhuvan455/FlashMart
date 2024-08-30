@@ -10,7 +10,7 @@ function Payment() {
     console.log(searchParams)
     const amount = searchParams.get('amount');
 
-    const stripePromise = loadStripe(process.env.STRIPE_PUBLISHER_KEY);
+    const stripePromise = loadStripe("pk_test_51PspazP1jXwx1qq25nhbBwQmGO7AdysWo46kVVatrv7N0xSpb1fZ7MibnLfTATyZ6UHJkXHweIfbsMQ68yN80yWu00ZjfPQ1TF");
     const options = {
         mode: 'payment',
         amount: Math.round(amount*100),
