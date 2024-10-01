@@ -6,12 +6,13 @@ import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from '@/components/CheckoutForm';
 import { Suspense } from 'react'
 
+
+const stripePromise = loadStripe(process.env.STRIPE_PUBLISHER_KEY);
+
 function PaymentSuspense() {
     const searchParams = useSearchParams();
-    console.log(searchParams)
     const amount = searchParams.get('amount');
 
-    const stripePromise = loadStripe(STRIPE_PUBLISHER_KEY);
     const options = {
         mode: 'payment',
         amount: Math.round(amount*100),
@@ -26,7 +27,10 @@ function PaymentSuspense() {
 }
 
 export default function Payment() {
-    <Suspense fallback={<div>Loading...</div>}>
-        <PaymentSuspense />
-    </Suspense>
+
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <PaymentSuspense />
+        </Suspense>
+    )
 }
