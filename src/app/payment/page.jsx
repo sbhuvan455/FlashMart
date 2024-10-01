@@ -4,13 +4,14 @@ import { useSearchParams } from 'next/navigation'
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import CheckoutForm from '@/components/CheckoutForm';
+import { Suspense } from 'react'
 
-function Payment() {
+function PaymentSuspense() {
     const searchParams = useSearchParams();
     console.log(searchParams)
     const amount = searchParams.get('amount');
 
-    const stripePromise = loadStripe("pk_test_51PspazP1jXwx1qq25nhbBwQmGO7AdysWo46kVVatrv7N0xSpb1fZ7MibnLfTATyZ6UHJkXHweIfbsMQ68yN80yWu00ZjfPQ1TF");
+    const stripePromise = loadStripe(STRIPE_PUBLISHER_KEY);
     const options = {
         mode: 'payment',
         amount: Math.round(amount*100),
@@ -24,4 +25,8 @@ function Payment() {
     )
 }
 
-export default Payment
+export default function Payment() {
+    <Suspense>
+        <PaymentSuspense />
+    </Suspense>
+}
