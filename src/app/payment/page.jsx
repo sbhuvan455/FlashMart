@@ -26,7 +26,7 @@ function PaymentSuspense() {
 }
 
 export default function Payment() {
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
         <PaymentSuspense />
     </Suspense>
 }
