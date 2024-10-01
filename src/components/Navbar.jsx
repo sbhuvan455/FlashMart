@@ -53,8 +53,9 @@ const Navbar = () => {
         <div className="flex md:flex-row flex-col justify-center gap-4 md:gap-0 items-center">
           <Link href='/'>
           <img
-            src="logo.svg"
+            src="logo.png"
             alt="logo"
+            className="mix-blend-luminosity w-32"
           />
           </Link>
 
@@ -70,7 +71,7 @@ const Navbar = () => {
             </form>
           </div>
         </div>
-     
+
         <div className="md:flex gap-3 items-center hidden">
           <Link
             href={currentUser ? '/profile' : '/login'}

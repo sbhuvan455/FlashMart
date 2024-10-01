@@ -47,7 +47,7 @@ const Page = () => {
 
   return (
     <div className="my-3">
-    <img src="paan-corner-banner-desktop.webp" alt="banner" className="w-[90vw] mx-auto"/>
+    <img src="Pet-Care_WEB.avif" alt="banner" className="w-[90vw] mx-auto"/>
     <div className="mt-10 mb-24">
       {categoryData.map((category, index) => (
         <div key={index} className="mb-8">
