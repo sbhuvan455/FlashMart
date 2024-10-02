@@ -76,7 +76,7 @@ const ProductCard = ({ product }) => {
               value={counter}
               className="w-16 py-1 text-center border border-gray-300 rounded-none select-none outline-none cursor-pointer"
               disabled={true}
-              readonly
+              readOnly
             />
             <button
               id="increase"

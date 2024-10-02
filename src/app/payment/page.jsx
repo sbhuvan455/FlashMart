@@ -7,7 +7,7 @@ import CheckoutForm from '@/components/CheckoutForm';
 import { Suspense } from 'react'
 
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHER_KEY);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHER_KEY);
 
 function PaymentSuspense() {
     const searchParams = useSearchParams();
