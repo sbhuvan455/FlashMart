@@ -6,12 +6,12 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyB8XHkpef6Azxvtu3GwNTS6HqzK0j_SOLE",
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
   authDomain: "zepto-deefb.firebaseapp.com",
   projectId: "zepto-deefb",
   storageBucket: "zepto-deefb.appspot.com",
   messagingSenderId: "1005474521542",
-  appId: "1:1005474521542:web:d199504aff7d090c8592c7",
+  appId: process.env.NEXT_PUBLIC_APP_ID,
   measurementId: "G-E56KPMWLHZ"
 };
 

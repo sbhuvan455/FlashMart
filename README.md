@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# FlashMart - Quick Commerce Website
 
-First, run the development server:
+FlashMart is a full-stack quick commerce platform designed to provide a seamless online shopping experience. The website is built using modern technologies like Next.js, shadcn component library, MongoDB, Firebase, and Stripe for handling payments.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Deployment
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The project is deployed and live at [FlashMart](https://flash-mart-chi.vercel.app/). It is hosted on Vercel for optimized performance and scalability.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Product Browsing**: Users can easily explore products categorized for quick navigation.
+- **User Authentication**: Secure login and registration.
+- **Payment Integration**: Stripe handles secure and reliable payments.
+- **Responsive Design**: Optimized for all devices, providing a smooth user experience on mobile, tablet, and desktop.
+- **Fast & Scalable**: Built with Next.js for both frontend and backend, ensuring high performance and scalability.
+  
+## Tech Stack
 
-## Learn More
+1. **Next.js**  
+   - A React framework that powers both the frontend and backend of the application, enabling server-side rendering and API routes for optimized performance.
 
-To learn more about Next.js, take a look at the following resources:
+2. **shadcn**  
+   - A flexible and highly customizable component library built on React, used to style and build the user interface of the website.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **MongoDB**  
+   - NoSQL database used to store all product, user, and order-related data.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. **Firebase**  
+   - Firebase is used as an object storage solution to store user-generated files, such as profile pictures and other media.
 
-## Deploy on Vercel
+5. **Stripe**  
+   - Stripe is integrated to provide a reliable and secure payment gateway for handling transactions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Setup & Installation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone the repository:
+
+   \`\`\`bash
+   git clone https://github.com/sbhuvan455/FlashMart.git
+   \`\`\`
+
+2. Navigate to the project directory:
+
+   \`\`\`bash
+   cd FlashMart
+   \`\`\`
+
+3. Install dependencies:
+
+   \`\`\`bash
+   npm install
+   \`\`\`
+
+4. Set up environment variables. Create a `.env.local` file in the root of your project and add the necessary configurations:
+
+   \`\`\`env
+   MONGO_URI=your_mongo_connection_string
+   NEXT_PUBLIC_STRIPE_PUBLISHER_KEY=your_stripe_public_key
+   STRIPE_SECRET_KEY=your_stripe_secret_key
+   \`\`\`
+
+5. Run the development server:
+
+   \`\`\`bash
+   npm run dev
+   \`\`\`
+
+6. Visit the application at `http://localhost:3000`.
+
+## Test User Credentials
+
+To experience the platform, you can log in using the test credentials below:
+
+- **Email**: `test_user_1@gmail.com`
+- **Password**: `test_user_1`
