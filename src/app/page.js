@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import ProductCard from "@/components/ProductCards";
+import { Skeleton } from "@/components/ui/skeleton"
 
 
 const Page = () => {
@@ -42,7 +43,21 @@ const Page = () => {
   }, []);
 
   if(categoryData.length <= 0){
-    console.log("loading...");
+    return (
+      <div className="w-[90vw] mx-auto space-y-10">
+        <Skeleton className="h-[200px] w-full rounded-lg" />
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="space-y-2">
+            <Skeleton className="h-4 w-[250px]" />
+            <div className="flex space-x-4">
+              {[...Array(4)].map((_, j) => (
+                <Skeleton key={j} className="h-[200px] w-[200px]" />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    )
   }
 
   return (

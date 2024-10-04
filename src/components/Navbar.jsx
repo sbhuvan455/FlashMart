@@ -55,7 +55,7 @@ const Navbar = () => {
           <img
             src="logo.png"
             alt="logo"
-            className="mix-blend-luminosity w-32"
+            className="mix-blend-luminosity w-28 rounded-md"
           />
           </Link>
 
