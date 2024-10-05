@@ -7,6 +7,13 @@ FlashMart is a full-stack quick commerce platform designed to provide a seamless
 
 The project is deployed and live at [FlashMart](https://flash-mart-chi.vercel.app/). It is hosted on Vercel for optimized performance and scalability.
 
+## Test User Credentials
+
+To experience the platform, you can log in using the test credentials below:
+
+- **Email**: `test_user_1@gmail.com`
+- **Password**: `test_user_1`
+
 ## Features
 
 - **Product Browsing**: Users can easily explore products categorized for quick navigation.
@@ -27,7 +34,7 @@ The project is deployed and live at [FlashMart](https://flash-mart-chi.vercel.ap
    - NoSQL database used to store all product, user, and order-related data.
 
 4. **Firebase**  
-   - Firebase is used as an object storage solution to store user-generated files, such as profile pictures and other media.
+   - Firebase is used as an object storage solution to store product images other media.
 
 5. **Stripe**  
    - Stripe is integrated to provide a reliable and secure payment gateway for handling transactions.
@@ -36,41 +43,37 @@ The project is deployed and live at [FlashMart](https://flash-mart-chi.vercel.ap
 
 1. Clone the repository:
 
-   \`\`\`bash
+   ```bash
    git clone https://github.com/sbhuvan455/FlashMart.git
-   \`\`\`
+   ```
 
 2. Navigate to the project directory:
 
-   \`\`\`bash
+   ```bash
    cd FlashMart
-   \`\`\`
+   ```
 
 3. Install dependencies:
 
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 4. Set up environment variables. Create a `.env.local` file in the root of your project and add the necessary configurations:
 
-   \`\`\`env
+   ```env
    MONGO_URI=your_mongo_connection_string
+   ACCESS_TOKEN_SECRET=your_access_token_string
    NEXT_PUBLIC_STRIPE_PUBLISHER_KEY=your_stripe_public_key
    STRIPE_SECRET_KEY=your_stripe_secret_key
-   \`\`\`
+   NEXT_PUBLIC_API_KEY=your_firebase_api_key
+   NEXT_PUBLIC_APP_ID=your_firebase_app_id
+   ```
 
 5. Run the development server:
 
-   \`\`\`bash
+   ```bash
    npm run dev
-   \`\`\`
+   ```
 
 6. Visit the application at `http://localhost:3000`.
-
-## Test User Credentials
-
-To experience the platform, you can log in using the test credentials below:
-
-- **Email**: `test_user_1@gmail.com`
-- **Password**: `test_user_1`
