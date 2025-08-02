@@ -29,7 +29,7 @@ function CheckoutForm({ amount }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    setIsloading(true);
+    setIsLoading(true);
 
     if (elements == null) {
       toast.error("Some error occurred internally. Please try again later.");

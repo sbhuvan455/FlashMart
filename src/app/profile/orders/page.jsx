@@ -8,7 +8,7 @@ export default function Orders() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true); // Start loading
+    setIsLoading(true);
     axios
       .get("/api/orders/getuserorders")
       .then((response) => {
@@ -19,7 +19,7 @@ export default function Orders() {
         console.log(error);
       })
       .finally(() => {
-        setIsLoading(false); // Stop loading
+        setIsLoading(false);
       });
   }, []);
 
