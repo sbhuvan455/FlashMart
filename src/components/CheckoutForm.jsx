@@ -18,12 +18,13 @@ function CheckoutForm({ amount }) {
   const elements = useElements();
 
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const items = useSelector((state) => state.cart.items);
   const totalQuantity = useSelector((state) => state.cart.quantity);
   const totalPrice = useSelector((state) => state.cart.price);
 
-  const [isLoading, setIsloading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
